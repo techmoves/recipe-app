@@ -43,7 +43,7 @@
 
 - Display general shopping list
 
-- Display invetory
+- Display inventory
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
