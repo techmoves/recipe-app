@@ -149,4 +149,8 @@ Special thanks goes to the Microverse community
 
 This project is [MIT](./MIT.md) licensed.
 
+<<<<<<< HEAD
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+=======
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+>>>>>>> 0ee39ab501734386e92d29490150aaa35c25cc6a
