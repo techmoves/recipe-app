@@ -1,0 +1,22 @@
+<section class="inventory-container">
+  <h1 class="inventory-name">
+    <%= @inventory.name %>
+  </h1>
+  <%= link_to "Add food" %>
+  <table class="inventory-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @inventory.foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity(@inventory.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
