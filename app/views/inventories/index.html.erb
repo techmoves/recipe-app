@@ -1,0 +1,10 @@
+<h1>My Inventories</h1>
+
+<ul>
+  <% @inventories.each do |inventory| %>
+    <li>
+      <%= link_to inventory.name, inventory %>
+      <%= link_to 'Delete', inventory, method: :delete, data: { confirm: 'Are you sure?' } if inventory.user == current_user %>
+    </li>
+  <% end %>
+</ul>
