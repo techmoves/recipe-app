@@ -1,0 +1,19 @@
+<div class="container w-full shadow-lg  p-5">
+  <h1 class="text-4xl text-center">Public Recipes</h1>
+  <ul class="w-full">
+    <% @public_recipes.each do |recipe|%>
+      <%= link_to recipe_path(recipe) do%>
+        <li class ="flex px-5  border shadow-xl m-2 w-full">
+          <div class="grid gap-3 w-1/2 my-2">
+              <h3 class='text-3xl'><strong><%= recipe.name%></strong></h3>
+              <span>By: <%= recipe.user.name%></span>
+          </div><%=  %>
+          <div class="grid gap-3 w-1/2 my-2">
+            <span class="text-2xl">Total food items: <%= recipe.foods.count %></span>
+            <span class="text-2xl">Total price: $<%= recipe.foods.sum(:price) %></span>
+          </div>
+        </li>
+      <% end %><%=  %>
+    <% end %>
+  </ul>
+</div>

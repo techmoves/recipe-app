@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'public_recipes/index'
+  get 'public_recipes/show'
   devise_for :users
   # get 'inventory/index'
   # get 'home/index'
