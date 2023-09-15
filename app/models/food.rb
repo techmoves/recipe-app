@@ -6,4 +6,8 @@ class Food < ApplicationRecord
 
   validates :name, presence: true
   validates :price, presence: true
+
+  def quantity(inventory_id)
+    inventory_foods.find_by(inventory_id:).quantity
+  end
 end
