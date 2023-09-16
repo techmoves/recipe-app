@@ -64,6 +64,11 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+RSpec.configure do |config|
+  config.include Warden::Test::Helpers
+end
+
 Capybara.default_driver = :selenium_chrome
 
 Shoulda::Matchers.configure do |config|
