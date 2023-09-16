@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   # get 'recipes/index'
   # get 'recipes/:id', to: 'recipes#show'
   # get 'recipes/:id', to: 'recipes#show'
@@ -18,10 +19,16 @@ Rails.application.routes.draw do
     #   get 'public_recipes', to: 'recipes#public_recipes'
     # end
   end
+
+  get 'public_recipes/index'
+  get 'public_recipes/show'
+
   devise_for :users
+
   # get 'inventory/index'
   # get 'home/index'
   resources :inventories
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
