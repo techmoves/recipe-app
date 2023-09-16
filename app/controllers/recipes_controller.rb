@@ -12,14 +12,17 @@ class RecipesController < ApplicationController
   end
 
   def add_ingredient
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.joins(:recipe_foods).select('recipes.*,recipe_foods.quantity').find(params[:id])
 
     if current_user == @recipe.user
       @foods_not_in_recipe = Food.where.not(id: @recipe.foods.pluck(:id))
 
       if params[:recipe].present? && params[:recipe][:food_ids].present?
         food_ids = params[:recipe][:food_ids].reject(&:empty?) # Remove empty strings
-        @recipe.foods << Food.where(id: food_ids)
+        Food.where(id: food_ids).each do |food|
+          RecipeFood.create!(food:, recipe: @recipe, quantity: params[:recipe][:quantity])
+        end
+        # @recipe.foods << foods_to_add
         flash[:notice] = 'Ingredients added successfully.'
         redirect_to @recipe
         return
@@ -36,7 +39,7 @@ class RecipesController < ApplicationController
     @user = @recipe.user
     # p "recipe user:#{@user.id}"
     # p "recipe user:#{current_user.id}"
-    @recipe_food = @recipe.foods.joins(:recipe_foods).select('foods.*,recipe_foods.quantity')
+    @recipe_food = @recipe.foods.joins(:recipe_foods).select('foods.*,recipe_foods.quantity').distinct
   end
 
   def update
