@@ -7,7 +7,9 @@
         <%= link_to recipe.name, recipe, class:'recipe-name' %>
         <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } if recipe.user == current_user %>
       </div>
-      <p><%= recipe.description %></p>
+       <div>
+        <%= recipe.description %>
+       </div>
     </li>
   <% end %>
 </ul>

@@ -1,4 +1,5 @@
 .recipes-container li {
+  display: flex;
   list-style: none;
   margin-bottom: 20px;
   padding: 20px;
@@ -8,6 +9,13 @@
   box-shadow: 0 0 5px #ccc;
   display: flex;
   justify-content: space-between;
+}
+
+.recipes-container > li > div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
 }
 
 .recipes-container .recipe-name {
