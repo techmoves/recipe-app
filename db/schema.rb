@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_15_160607) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_14_130735) do
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "measurement_unit"
@@ -72,7 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_160607) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "foods", "users"
   add_foreign_key "inventories", "users"
   add_foreign_key "inventory_foods", "foods"
   add_foreign_key "inventory_foods", "inventories"
