@@ -2,21 +2,24 @@
   <h1 class="inventory-name">
     <%= @inventory.name %>
   </h1>
-  <%= link_to "Add food" %>
+  <%= link_to "Add food", new_food_path %>
   <table class="inventory-table">
     <thead>
       <tr>
         <th>Food</th>
         <th>Quantity</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <% @inventory.foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= food.quantity(@inventory.id) %></td>
+          <td><%= "#{food.quantity(@inventory.id)} #{food.measurement_unit}" %></td>
+          <td><%= button_to 'Remove', food_path(food), method: :delete %>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= render 'recipes/modal' %>
 </section>

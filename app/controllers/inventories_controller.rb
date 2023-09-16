@@ -5,6 +5,8 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = current_user.inventories.find(params[:id])
+    session[:s_id] = @inventory.id
+    session[:food_source] = 'inventory'
   end
 
   def destroy
