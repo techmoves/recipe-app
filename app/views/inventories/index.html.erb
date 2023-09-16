@@ -1,0 +1,16 @@
+<h1>My Inventories</h1>
+
+<ul class="recipes-container">
+  <% @inventories.each do |inventory| %>
+    <li>
+      <div>
+        <%= link_to inventory.name, inventory, class:'inventory-name' %>
+        <%= button_to 'Delete', inventory, method: :delete, data: { confirm: 'Are you sure?' } if inventory.user == current_user %>
+      </div>
+       <div>
+        <%= inventory.description %>
+       </div>
+    </li>
+  <% end %>
+  <%= link_to 'New Inventory', new_inventory_path, class:'btn btn-primary btn-link' %>
+</ul>

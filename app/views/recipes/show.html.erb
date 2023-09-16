@@ -1,0 +1,70 @@
+<div class="recipe-show-page">
+  <div class="recipe-header">
+   <% if flash[:notice].present? %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+   <% end %>
+    <h2><%= @recipe.name %></h2>
+    <div class="top-line">
+      <span>Preparation Time: <%= @recipe.preparation_time %> minutes</span>
+      <span>
+      <%= form_for @recipe do |f| %>
+        <% if current_user == @recipe.user %>
+          <% if @recipe.public %>
+            <%= button_to  'Make Private ', recipe_path(@recipe), method: :patch, class: "btn btn-primary btn-sm" %>
+         <% else %>
+            <%= button_to  'Make public', recipe_path(@recipe), method: :patch, class: 'btn btn-primary btn-sm' %>
+          <% end %>
+        <% end %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
+  <p>Description: <%= @recipe.description %></p>
+  <div class="recipe-show-button-container">
+    <button class='btn btn-primary' id='gen-btn'>Generate Shopping List</button>
+
+  <% if current_user == @recipe.user %>
+      <%= link_to 'Add Ingredient', add_ingredient_recipe_path(@recipe), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <% if current_user == @recipe.user %>
+      <th>Action</th> <!-- Add an Action column -->
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_food.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.quantity %> <%= food.measurement_unit %></td>
+        <td><%= number_to_currency(food.price) %></td>
+        <% if current_user == @recipe.user %>
+        <td>
+            <%= form_tag(remove_food_recipe_path(@recipe, food_id: food.id), method: :delete) do %>
+            <%= submit_tag 'Remove Food', class: 'btn btn-danger btn-sm' %>
+            <% end %>
+        </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to 'Back to Recipes', recipes_path %>
+<%= render 'modal' %>
+<script>
+  const genBtn = document.querySelector('#gen-btn');
+  genBtn.addEventListener('click', () => {
+    const modal = document.querySelector('.shopping-list-modal');
+    modal.style.display = 'block';
+  });
+</script>

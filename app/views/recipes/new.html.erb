@@ -1,0 +1,26 @@
+<h1> New Recipe </h1>
+<%= form_for @recipe do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :preparation_time %><br>
+    <%= f.text_field :preparation_time %>
+  </div>
+  <div class="field">
+    <%= f.label :cooking_time %><br>
+    <%= f.text_field :cooking_time %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br>
+    <%= f.check_box :public %>
+  </div>
+
+
+  <%= f.submit, class:'btn' %>
+<% end %>

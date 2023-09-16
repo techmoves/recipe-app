@@ -1,0 +1,12 @@
+<h1> New Inventory </h1>
+<%= form_for @inventory do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <%= f.submit, class:'btn' %>
+<% end %>

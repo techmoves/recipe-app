@@ -1,0 +1,8 @@
+<section class='shopping-list-modal'>
+  <h2> generating shopping list </h2>
+  <h3> Choose an inventory to use</h3>
+  <%= form_with url: choose_inventory_recipe_path(@recipe), method: :post do |f| %>
+    <%= f.select :inventory_id, options_from_collection_for_select(current_user.inventories, :id, :name) %>
+    <%= f.submit "Choose this inventory", class: 'btn btn-primary' %>
+  <% end %>
+</section>

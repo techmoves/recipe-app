@@ -1,0 +1,228 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  background-color: rgb(159, 110, 206);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container img {
+  width: 100px;
+  height: 100px;
+}
+
+.container ul {
+  list-style-type: none;
+}
+
+.container ul li {
+  margin: 20px;
+}
+
+.show-container div {
+  margin-left: 20px;
+  border: 1px solid black;
+  padding: 0 10px;
+}
+
+.post-div ul div {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.container ul li > div {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
+.container ul li > div div {
+  margin: 0 30px;
+  border: 1px solid black;
+  padding: 0 10px;
+}
+
+.main-div button a {
+  text-decoration: none;
+}
+
+.post-div button a {
+  text-decoration: none;
+}
+
+.container ul li > div div p:first-child a {
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.show-container div p:first-child {
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.show-container div p:last-child {
+  text-align: right;
+}
+
+.main-div ul li p:first-child {
+  font-weight: bold;
+}
+
+.main-div ul li p:last-child {
+  text-align: right;
+}
+
+.post-div ul li p:last-child {
+  text-align: right;
+}
+
+.container ul li > div div p:last-child {
+  text-align: right;
+}
+
+.main-div {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.show-container {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
+button {
+  font-size: larger;
+  font-weight: 700;
+  font-style: oblique;
+  background-color: aquamarine;
+}
+
+.show-container img {
+  width: 100px;
+}
+
+.main-div > div:nth-child(2) {
+  border: 1px solid black;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.main-div ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid black;
+}
+
+.main-div button {
+  margin: 20px auto;
+  display: block;
+  padding: 5px;
+}
+
+.post-div {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.post-div ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-div ul li {
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.post-div button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.forget-pass {
+  display: none;
+}
+
+h2 .forget-pass {
+  display: none;
+}
+
+.field {
+  align-items: center;
+}
+
+.log {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+  padding: 10px 20px;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+.log-input {
+  width: 400px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #010101;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+.up {
+  display: none;
+}
+
+.btn-link {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.text-2xl {
+  padding-left: 45%;
+}
+
+.text2 {
+  font-size: large;
+}
