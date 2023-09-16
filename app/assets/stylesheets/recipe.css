@@ -7,7 +7,6 @@
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px #ccc;
-  display: flex;
   justify-content: space-between;
 }
 
@@ -15,7 +14,7 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-
+  justify-content: space-between;
 }
 
 .recipes-container .recipe-name {
@@ -25,12 +24,6 @@
 
 .recipes-container p {
   margin-left: 1em;
-}
-
-.recipes-container > li > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .recipes-container a:nth-child(2) {
