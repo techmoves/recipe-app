@@ -1,14 +1,14 @@
 .recipes-container li {
-    list-style: none;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 5px #ccc;
-    display: flex;
-    justify-content: space-between;
-  }
+  list-style: none;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+  display: flex;
+  justify-content: space-between;
+}
   
   .recipes-container a:nth-child(2) {
     text-decoration: none;
