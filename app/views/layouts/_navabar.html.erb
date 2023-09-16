@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Recepe App</a>
+    <a class="navbar-brand" href="#">Recipe App</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <%= link_to 'Recipes', '/recipes/index', class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'Inventories', inventories_path, class: 'nav-link' %>
@@ -16,7 +16,7 @@
           <a class="nav-link" href="#"> shopping list</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> public recipes</a>
+         <%= link_to 'Public recipes', '/public_recipes/index', class: 'nav-link'  %>
         </li>
         <% if current_user %>
           <li class="nav-item">
