@@ -209,3 +209,12 @@ h2 .forget-pass {
 .up {
   display: none;
 }
+
+.btn-link {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}

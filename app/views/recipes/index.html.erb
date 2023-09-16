@@ -1,10 +1,15 @@
 <h1>My Recipes</h1>
 
-<ul>
+<ul class="recipes-container">
   <% @recipes.each do |recipe| %>
     <li>
-      <%= link_to recipe.name, recipe %>
-      <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } if recipe.user == current_user %>
+      <div>
+        <%= link_to recipe.name, recipe, class:'recipe-name' %>
+        <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } if recipe.user == current_user %>
+      </div>
+      <p><%= recipe.description %></p>
     </li>
   <% end %>
 </ul>
+<%# add a new recipe %>
+<%= link_to 'New Recipe', new_recipe_path, class:'btn' %>

@@ -18,4 +18,17 @@ class InventoriesController < ApplicationController
     @inventory.destroy
     redirect_to inventories_path, notice: 'Inventory deleted successfully.'
   end
+
+  def new
+    @inventory = current_user.inventories.new
+  end
+
+  def create
+    @inventory = current_user.inventories.new(params.require(:inventory).permit(:name))
+    if @inventory.save
+      redirect_to inventories_path, notice: 'Inventory created successfully.'
+    else
+      render :new
+    end
+  end
 end

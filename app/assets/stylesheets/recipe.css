@@ -10,6 +10,21 @@
   justify-content: space-between;
 }
 
+.recipes-container .recipe-name {
+  text-decoration: none;
+  color: #000;
+}
+
+.recipes-container p {
+  margin-left: 1em;
+}
+
+.recipes-container > li > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .recipes-container a:nth-child(2) {
   text-decoration: none;
   color: #000;

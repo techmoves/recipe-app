@@ -7,4 +7,5 @@
       <%= button_to 'Delete', inventory, method: :delete, data: { confirm: 'Are you sure?' } if inventory.user == current_user %>
     </li>
   <% end %>
+  <%= link_to 'New Inventory', new_inventory_path, class:'btn btn-primary btn-link' %>
 </ul>
