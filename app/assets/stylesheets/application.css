@@ -218,3 +218,11 @@ h2 .forget-pass {
   border: 1px solid #ccc;
   background-color: #fff;
 }
+
+.text-2xl {
+  padding-left: 45%;
+}
+
+.text2 {
+  font-size: large;
+}
