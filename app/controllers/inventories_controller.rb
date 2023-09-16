@@ -5,6 +5,10 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = current_user.inventories.find(params[:id])
+    @inventory_foods = @inventory.foods
+      .joins(:inventory_foods)
+      .select('foods.*, inventory_foods.quantity')
+      .distinct
     session[:s_id] = @inventory.id
     session[:food_source] = 'inventory'
   end

@@ -12,10 +12,10 @@
       </tr>
     </thead>
     <tbody>
-      <% @inventory.foods.each do |food| %>
+      <% @inventory_foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= "#{food.quantity(@inventory.id)} #{food.measurement_unit}" %></td>
+          <td><%= "#{food.quantity} #{food.measurement_unit}" %></td>
           <td><%= button_to 'Remove', food_path(food), method: :delete %>
         </tr>
       <% end %>
