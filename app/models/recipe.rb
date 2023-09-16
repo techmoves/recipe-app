@@ -1,9 +1,9 @@
 class Recipe < ApplicationRecord
   has_many :recipe_foods
   has_many :foods, through: :recipe_foods
-
   belongs_to :user
-  has_many :recipes, dependent: :destroy
+
+  attribute :public, :boolean, default: false
 
   validates :name, presence: true
   validates :preparation_time, presence: true

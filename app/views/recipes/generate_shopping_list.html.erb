@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="mt-4">Generate Shopping List</h2>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <p>Amount of food items to buy: <%= @required_foods.to_a.count %></p>
+      <p>Total Value of food needed: <%= number_to_currency(@total_value) %></p>
+    </div>
+  </div>
+
+  <h3 class="mt-4">Required Food Items</h3>
+  <table class="table table-bordered mt-2">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Measurement Unit</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @required_foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= number_to_currency(food.quantity.to_i * food.price.to_f) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Back to Recipe', recipe_path(@recipe), class: 'btn btn-primary mt-4' %>
+</div>
