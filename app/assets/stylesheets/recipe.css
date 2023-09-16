@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
 }
-  
+
 .recipes-container a:nth-child(2) {
   text-decoration: none;
   color: #000;
@@ -26,24 +26,24 @@
   left: -2.25rem;
   width: 2rem;
   pointer-events: none;
-  border-width: .5rem;
+  border-width: 0.5rem;
 }
 
 .custom-switch .custom-control-label::after {
-  top: calc(.5rem + 2px);
+  top: calc(0.5rem + 2px);
   left: calc(-2.25rem + 2px);
   width: 1rem;
   height: 1rem;
-  transition: left .15s ease-in-out, transform .15s ease-in-out, opacity .15s ease-in-out;
+  transition: left 0.15s ease-in-out, transform .15s ease-in-out, opacity .15s ease-in-out;
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
-  left: .75rem;
+  left: 0.75rem;
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  left: .75rem;
-  transform: translateX(.75rem);
+  left: 0.75rem;
+  transform: translateX(0.75rem);
 }
 
 .top-line {
