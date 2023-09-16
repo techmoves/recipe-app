@@ -17,8 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_160607) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
   create_table "inventories", force: :cascade do |t|

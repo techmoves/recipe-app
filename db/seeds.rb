@@ -39,8 +39,7 @@ Recipe.create(
 Food.create(
   name: "My Food",
   measurement_unit: "kg",
-  price: 1.99,
-  user_id: 1
+  price: 1.99
 )
 
 InventoryFood.create(
@@ -87,8 +86,7 @@ end
   Food.create(
     name: Faker::Name.name,
     measurement_unit: "kg",
-    price: Faker::Number.decimal(l_digits: 2),
-    user_id: prng.rand(1..20)
+    price: Faker::Number.decimal(l_digits: 2)
   )
 end
 
