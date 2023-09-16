@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get 'add_ingredient', to: 'recipes#add_ingredient'
       post 'add_ingredient', to: 'recipes#add_ingredient'
       get 'generate_shopping_list', to: 'recipes#generate_shopping_list'
+      # post 'generate_shopping_list', to: 'recipes#generate_shopping_list'
+      post 'choose_inventory', to: 'recipes#choose_inventory'
       delete 'remove_food'
     end
   end
