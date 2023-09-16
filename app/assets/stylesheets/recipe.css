@@ -10,11 +10,17 @@
   justify-content: space-between;
 }
 
+.source-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+
 .recipes-container > li > div {
   display: flex;
   flex-direction: column;
   width: 50%;
-  justify-content: space-between;
 }
 
 .recipes-container .recipe-name {

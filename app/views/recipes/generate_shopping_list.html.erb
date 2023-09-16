@@ -4,6 +4,10 @@
     <div class="col-md-6">
       <p>Amount of food items to buy: <%= @required_foods.to_a.count %></p>
       <p>Total Value of food needed: <%= number_to_currency(@total_value) %></p>
+      <div class="source-details">
+      <p>Recipe: <%= link_to @recipe.name, @recipe %></p>
+      <p>Inventory: <%= link_to @inventory.name, @inventory %></p>
+      </div>
     </div>
   </div>
 
