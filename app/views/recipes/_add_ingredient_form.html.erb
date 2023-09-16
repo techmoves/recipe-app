@@ -1,0 +1,24 @@
+<h3>Add Ingredient</h3>
+<%= form_for @recipe, url: add_ingredient_recipe_path(@recipe), method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :food_ids, 'Select Ingredient' %>
+    <%= f.collection_select :food_ids, @foods_not_in_recipe, :id, :name, {}, multiple: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Add Ingredients', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<script>
+  function removeEmptyValues() {
+    const selectElement = document.querySelector("#recipe_food_ids");
+    const selectedOptions = Array.from(selectElement.selectedOptions);
+
+    // Remove empty values ("" is empty)
+    const filteredSelectedValues = selectedOptions.map(option => option.value).filter(value => value !== "");
+
+    // Update the form field with the filtered values
+    selectElement.value = filteredSelectedValues;
+  }
+</script>
