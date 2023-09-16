@@ -34,7 +34,7 @@
   left: calc(-2.25rem + 2px);
   width: 1rem;
   height: 1rem;
-  transition: left 0.15s ease-in-out, transform .15s ease-in-out, opacity .15s ease-in-out;
+  transition: left 0.15s ease-in-out, transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
