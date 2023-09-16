@@ -24,6 +24,7 @@ User.create(
 
 Inventory.create(
   name: "My Inventory",
+  description: "My Description",
   user_id: 1
 )
 
@@ -67,6 +68,7 @@ prng = Random.new
 30.times do
   Inventory.create(
     name: Faker::Name.name,
+    description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
     user_id: prng.rand(1..20)
   )
 end
