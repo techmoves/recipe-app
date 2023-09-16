@@ -2,22 +2,16 @@
 
 Rails.application.routes.draw do
 
-  # get 'recipes/index'
-  # get 'recipes/:id', to: 'recipes#show'
-  # get 'recipes/:id', to: 'recipes#show'
-  # patch 'recipes/:id/toggle_recipe_public', to: 'recipes#toggle_recipe_public', as: 'toggle_recipe_public'
   resources :recipes do
     member do
-      delete :destroy         
+      delete :destroy
       get 'add_ingredient', to: 'recipes#add_ingredient'
       post 'add_ingredient', to: 'recipes#add_ingredient'
       get 'generate_shopping_list', to: 'recipes#generate_shopping_list'
+      # post 'generate_shopping_list', to: 'recipes#generate_shopping_list'
+      post 'choose_inventory', to: 'recipes#choose_inventory'
       delete 'remove_food'
     end
-
-    # collection do
-    #   get 'public_recipes', to: 'recipes#public_recipes'
-    # end
   end
 
   get 'public_recipes/index'
@@ -25,12 +19,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # get 'inventory/index'
-  # get 'home/index'
   resources :inventories
-  
+
+  resources :foods, only: %i[create new destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "inventories#index"
+  root "recipes#index"
 end

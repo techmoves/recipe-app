@@ -1,7 +1,7 @@
-<h1>My Inventories</h1>
+<h1>My Recipes</h1>
 
 <ul>
-  <% @inventories.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
     <li>
       <%= link_to recipe.name, recipe %>
       <%= button_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } if recipe.user == current_user %>

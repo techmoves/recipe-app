@@ -91,11 +91,30 @@ class RecipesController < ApplicationController
     end
   end
 
+  def choose_inventory
+    @recipe = Recipe.find(params[:id])
+    p params[:inventory_id]
+    return unless params[:inventory_id].present?
+
+    redirect_to generate_shopping_list_recipe_path(@recipe, inventory_id: params[:inventory_id])
+  end
+
   def generate_shopping_list
     @recipe = Recipe.find(params[:id])
-    @required_foods = @recipe.foods.joins(:recipe_foods).select('foods.*,recipe_foods.quantity')
+    p params[:inventory_id], 'inventory_id'
+    # p params[:recipe][:inventory_id], 'recipe_inventory_id'
+    p params[:recipe], 'recipe'
 
+    return unless params[:inventory_id].present?
+
+    @inventory = Inventory.find(params[:inventory_id])
+    @required_foods = @recipe.foods
+      .joins(:recipe_foods).select('foods.*,recipe_foods.quantity')
+      .where.not(id: @inventory.foods.pluck(:id))
+      .distinct
     @total_value = @required_foods.sum { |food| food.quantity.to_i * food.price.to_f }
+
+    # redirect_to generate_shopping_list_recipe_path(@recipe)
   end
 
   def destroy
