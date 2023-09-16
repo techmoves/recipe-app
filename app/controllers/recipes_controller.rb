@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-  end 
+  end
 
   def add_ingredient
     @recipe = Recipe.find(params[:id])
@@ -33,48 +33,42 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @user  = @recipe.user
+    @user = @recipe.user
     # p "recipe user:#{@user.id}"
     # p "recipe user:#{current_user.id}"
-    @recipe_food = @recipe.foods.joins(:recipe_foods).select("foods.*,recipe_foods.quantity")
+    @recipe_food = @recipe.foods.joins(:recipe_foods).select('foods.*,recipe_foods.quantity')
   end
 
   def update
-    begin
-      @recipe = Recipe.find_by(id: params[:id])
-      
-      if @recipe.user == current_user
-       
-        @recipe.update(public: !@recipe.public)
-     
-        flash[:notice] = @recipe.public ? "Recipe is now public." : 'Recipe is now private.'
-      else
-        flash[:alert] = 'You do not have permission to toggle this recipe.'
-      end
-      redirect_to @recipe
+    @recipe = Recipe.find_by(id: params[:id])
 
-    rescue Exception   => e    
-      flash[:notice] = "An error occurred: #{e.message}"
+    if @recipe.user == current_user
+
+      @recipe.update(public: !@recipe.public)
+
+      flash[:notice] = @recipe.public ? 'Recipe is now public.' : 'Recipe is now private.'
+    else
+      flash[:alert] = 'You do not have permission to toggle this recipe.'
     end
+    redirect_to @recipe
+  rescue StandardError => e
+    flash[:notice] = "An error occurred: #{e.message}"
   end
 
   def remove_food
-    begin
-        @recipe = Recipe.find_by(id: params[:id])
-        @recipe_food = RecipeFood.find_by(food_id: params[:food_id],recipe_id:  params[:id])
-     
-        if current_user == @recipe.user
-          RecipeFood.delete(@recipe_food)
-          flash[:notice] = 'Ingredient removed successfully.'
-        else
-          flash[:alert] = 'You do not have permission to remove ingredients from this recipe.'
-        end
-      
-        redirect_to @recipe
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe_food = RecipeFood.find_by(food_id: params[:food_id], recipe_id: params[:id])
 
-    rescue Exception   => e    
-      flash[:notice] = "An error occurred: #{e.message}" 
-    end   
+    if current_user == @recipe.user
+      RecipeFood.delete(@recipe_food)
+      flash[:notice] = 'Ingredient removed successfully.'
+    else
+      flash[:alert] = 'You do not have permission to remove ingredients from this recipe.'
+    end
+
+    redirect_to @recipe
+  rescue StandardError => e
+    flash[:notice] = "An error occurred: #{e.message}"
   end
 
   def public_recipes
@@ -96,12 +90,11 @@ class RecipesController < ApplicationController
 
   def generate_shopping_list
     @recipe = Recipe.find(params[:id])
-    @required_foods = @recipe.foods.joins(:recipe_foods).select("foods.*,recipe_foods.quantity")
-  
-    @total_value = @required_foods.sum { |food| food.quantity.to_i * food.price.to_f }
+    @required_foods = @recipe.foods.joins(:recipe_foods).select('foods.*,recipe_foods.quantity')
 
+    @total_value = @required_foods.sum { |food| food.quantity.to_i * food.price.to_f }
   end
-  
+
   def destroy
     @recipe = Recipe.find(params[:id])
     if @recipe.user == current_user
